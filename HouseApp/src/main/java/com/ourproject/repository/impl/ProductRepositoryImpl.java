@@ -34,7 +34,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public List<Product> getProducts(Map<String, String> params) 
     {
-        try (Session session = this.factory.getObject().getCurrentSession()) {
+        Session session = this.factory.getObject().getCurrentSession(); {
 
             CriteriaBuilder b = session.getCriteriaBuilder();
             CriteriaQuery<Product> q = b.createQuery(Product.class);

@@ -1,3 +1,4 @@
+D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\CategoryRepository.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\impl\ProductServiceImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Category.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\configs\HibernateConfig.java
@@ -7,10 +8,13 @@ D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\User.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\configs\WebAppContextConfig.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Product.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\ProductRepository.java
+D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\CategoryService.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\configs\DispatcherServletInit.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\controllers\IndexController.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\StatsRepositoryImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Tag.java
+D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\impl\CategoryServiceImpl.java
+D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\CategoryRepositoryImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\ProductService.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\ProdTag.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\StatsRepository.java

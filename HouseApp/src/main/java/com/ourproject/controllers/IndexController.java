@@ -1,5 +1,6 @@
 package com.ourproject.controllers;
 
+import com.ourproject.service.CategoryService;
 import com.ourproject.service.ProductService;
 import java.util.Map;
 
@@ -25,10 +26,12 @@ public class IndexController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CategoryService cateService;
 
     @RequestMapping("/")
     public String index(Model model, @RequestParam Map<String, String> params) {
-        
+        model.addAttribute("categories",this.cateService.getCates());
         model.addAttribute("products", this.productService.getProducts(params));
         return "index";
     }
