@@ -53,6 +53,19 @@
                     <a href="#" class="btn btn-info">Add product</a>
                 </button>
             </div>
+            <c:if test="${counter} > 1">
+            <ul class="pagination mt-1">
+                <li class="page-item"><a class="page-link" href="${action}">All product</a></li>
+
+                <c:forEach begin="1" end="${counter}" var="i">
+                    <c:url value="/" var="pageAction">
+                        <c:param name="page" value="${i}"/>
+                    </c:url>
+                    <li class="page-item"><a class="page-link" href="${pageAction}">${i}</a></li>
+
+                </c:forEach>
+            </ul>
+                </c:if>
             <table class="table table-hover">
 
                 <thead>

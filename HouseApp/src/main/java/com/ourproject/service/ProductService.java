@@ -4,7 +4,7 @@
  */
 package com.ourproject.service;
 
-import com.ourproject.pojo.Product;
+import com.ourproject.pojo.User;
 import java.util.List;
 import java.util.Map;
 
@@ -13,5 +13,6 @@ import java.util.Map;
  * @author ahjhj
  */
 public interface ProductService {
-    List<Product> getProducts(Map<String, String > params );
+    List<User> getProducts(Map<String, String > params );
+    int countProduct();
 }

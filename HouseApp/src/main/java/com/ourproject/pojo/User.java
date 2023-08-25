@@ -7,11 +7,14 @@ package com.ourproject.pojo;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -30,105 +33,84 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
-    @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
-    @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName"),
+    @NamedQuery(name = "User.findByUserID", query = "SELECT u FROM User u WHERE u.userID = :userID"),
+    @NamedQuery(name = "User.findByUserName", query = "SELECT u FROM User u WHERE u.userName = :userName"),
     @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
-    @NamedQuery(name = "User.findByPhone", query = "SELECT u FROM User u WHERE u.phone = :phone"),
-    @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
     @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-    @NamedQuery(name = "User.findByActive", query = "SELECT u FROM User u WHERE u.active = :active"),
-    @NamedQuery(name = "User.findByUserRole", query = "SELECT u FROM User u WHERE u.userRole = :userRole")})
+    @NamedQuery(name = "User.findByAvatar", query = "SELECT u FROM User u WHERE u.avatar = :avatar")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "UserID")
+    private Integer userID;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "first_name")
-    private String firstName;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "last_name")
-    private String lastName;
+    @Size(min = 1, max = 50)
+    @Column(name = "UserName")
+    private String userName;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "email")
+    @Size(max = 300)
+    @Column(name = "Email")
     private String email;
-    // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "phone")
-    private String phone;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "username")
-    private String username;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "password")
+    @Size(min = 1, max = 1000)
+    @Column(name = "Password")
     private String password;
-    @Column(name = "active")
-    private Boolean active;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "user_role")
-    private String userRole;
-    @OneToMany(mappedBy = "userId")
-    private Set<SaleOrder> saleOrderSet;
+    @Size(max = 1000)
+    @Column(name = "Avatar")
+    private String avatar;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private Set<Hostel> hostelSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private Set<Rating> ratingSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private Set<Comment> commentSet;
+    @OneToMany(mappedBy = "followerUserID")
+    private Set<Follow> followSet;
+    @OneToMany(mappedBy = "followedUserID")
+    private Set<Follow> followSet1;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userID")
+    private Set<Posting> postingSet;
+    @JoinColumn(name = "RoleID", referencedColumnName = "RoleID")
+    @ManyToOne(optional = false)
+    private Role roleID;
 
+    
+    private Role role; 
+    
+    
     public User() {
     }
 
-    public User(Integer id) {
-        this.id = id;
+    public User(Integer userID) {
+        this.userID = userID;
     }
 
-    public User(Integer id, String firstName, String lastName, String email, String phone, String username, String password, String userRole) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.username = username;
+    public User(Integer userID, String userName, String password, Role role) {
+        this.userID = userID;
+        this.userName = userName;
         this.password = password;
-        this.userRole = userRole;
+        this.role = role;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUserID() {
+        return userID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserID(Integer userID) {
+        this.userID = userID;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -139,22 +121,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -163,35 +129,80 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Boolean getActive() {
-        return active;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @XmlTransient
-    public Set<SaleOrder> getSaleOrderSet() {
-        return saleOrderSet;
+    public Set<Hostel> getHostelSet() {
+        return hostelSet;
     }
 
-    public void setSaleOrderSet(Set<SaleOrder> saleOrderSet) {
-        this.saleOrderSet = saleOrderSet;
+    public void setHostelSet(Set<Hostel> hostelSet) {
+        this.hostelSet = hostelSet;
+    }
+
+    @XmlTransient
+    public Set<Rating> getRatingSet() {
+        return ratingSet;
+    }
+
+    public void setRatingSet(Set<Rating> ratingSet) {
+        this.ratingSet = ratingSet;
+    }
+
+    @XmlTransient
+    public Set<Comment> getCommentSet() {
+        return commentSet;
+    }
+
+    public void setCommentSet(Set<Comment> commentSet) {
+        this.commentSet = commentSet;
+    }
+
+    @XmlTransient
+    public Set<Follow> getFollowSet() {
+        return followSet;
+    }
+
+    public void setFollowSet(Set<Follow> followSet) {
+        this.followSet = followSet;
+    }
+
+    @XmlTransient
+    public Set<Follow> getFollowSet1() {
+        return followSet1;
+    }
+
+    public void setFollowSet1(Set<Follow> followSet1) {
+        this.followSet1 = followSet1;
+    }
+
+    @XmlTransient
+    public Set<Posting> getPostingSet() {
+        return postingSet;
+    }
+
+    public void setPostingSet(Set<Posting> postingSet) {
+        this.postingSet = postingSet;
+    }
+
+    public Role getRoleID() {
+        return roleID;
+    }
+
+    public void setRoleID(Role roleID) {
+        this.roleID = roleID;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (userID != null ? userID.hashCode() : 0);
         return hash;
     }
 
@@ -202,7 +213,7 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.userID == null && other.userID != null) || (this.userID != null && !this.userID.equals(other.userID))) {
             return false;
         }
         return true;
@@ -210,7 +221,21 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "com.ourproject.pojo.User[ id=" + id + " ]";
+        return "com.ourproject.pojo.User[ userID=" + userID + " ]";
+    }
+
+    /**
+     * @return the role
+     */
+    public Role getRole() {
+        return role;
+    }
+
+    /**
+     * @param role the role to set
+     */
+    public void setRole(Role role) {
+        this.role = role;
     }
     
 }
