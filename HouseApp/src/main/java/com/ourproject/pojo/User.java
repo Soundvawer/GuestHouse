@@ -79,10 +79,6 @@ public class User implements Serializable {
     @ManyToOne(optional = false)
     private Role roleID;
 
-    
-    private Role role; 
-    
-    
     public User() {
     }
 
@@ -90,11 +86,10 @@ public class User implements Serializable {
         this.userID = userID;
     }
 
-    public User(Integer userID, String userName, String password, Role role) {
+    public User(Integer userID, String userName, String password) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
-        this.role = role;
     }
 
     public Integer getUserID() {
@@ -223,19 +218,4 @@ public class User implements Serializable {
     public String toString() {
         return "com.ourproject.pojo.User[ userID=" + userID + " ]";
     }
-
-    /**
-     * @return the role
-     */
-    public Role getRole() {
-        return role;
-    }
-
-    /**
-     * @param role the role to set
-     */
-    public void setRole(Role role) {
-        this.role = role;
-    }
-    
 }

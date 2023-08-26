@@ -4,15 +4,13 @@
  */
 package com.ourproject.service;
 
-import com.ourproject.pojo.User;
+import com.ourproject.pojo.Room;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
  * @author ahjhj
  */
-public interface ProductService {
-    List<User> getProducts(Map<String, String > params );
-    int countProduct();
+public interface RoomService {
+    List<Room> getRooms();
 }

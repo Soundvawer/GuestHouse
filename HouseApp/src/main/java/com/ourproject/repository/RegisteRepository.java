@@ -4,14 +4,16 @@
 // */
 //package com.ourproject.repository;
 //
-//import com.ourproject.pojo.Category;
-//import java.util.List;
+//import com.ourproject.pojo.Role;
+//import com.ourproject.pojo.User;
+//import org.springframework.stereotype.Repository;
 //
 ///**
 // *
 // * @author ahjhj
 // */
-//
-//public interface CategoryRepository {
-//    List<Category> getCates();
+//@Repository
+//public interface RegisteRepository {
+//    Role getRoleByName(String roleName);
+//    void saveUserToDatabase(User user);
 //}
