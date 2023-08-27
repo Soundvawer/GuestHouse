@@ -2,6 +2,7 @@ com\ourproject\service\HostelService.class
 com\ourproject\pojo\Room.class
 com\ourproject\controllers\IndexController.class
 com\ourproject\pojo\Follow.class
+com\ourproject\pojo\TemporaryPost.class
 com\ourproject\service\impl\HostelServiceImpl.class
 com\ourproject\configs\HibernateConfig.class
 com\ourproject\pojo\Notification_.class
@@ -25,6 +26,7 @@ com\ourproject\pojo\Room_.class
 com\ourproject\pojo\Rating_.class
 com\ourproject\pojo\User_.class
 com\ourproject\pojo\Notification.class
+com\ourproject\controllers\PostController.class
 com\ourproject\pojo\Comment.class
 com\ourproject\pojo\Follow_.class
 com\ourproject\service\impl\RoomServiceImpl.class

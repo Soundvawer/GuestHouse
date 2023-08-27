@@ -27,7 +27,7 @@ public class RoomRepositoryImpl implements RoomRepository{
     @Override
     public List<Room> getRooms(){
         Session session = this.factory.getObject().getCurrentSession();
-        Query q = session.createQuery("FROM ROOM");
+        Query q = session.createQuery("FROM Room");
         return q.getResultList();
     }
    
