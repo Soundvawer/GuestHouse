@@ -25,5 +25,15 @@ public class RoomServiceImpl implements RoomService{
     public List<Room> getRooms() {
         return this.roomRepository.getRooms();
     }
+
+    @Override
+    public List<Room> getUnapprovedRooms() {
+        return roomRepository.getUnapprovedRooms();
+    }
+    
+    @Override
+    public void approveRoom(int id) {
+        roomRepository.approveRoom(id);
+    }
     
 }

@@ -8,8 +8,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -32,13 +30,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Room.findByRoomID", query = "SELECT r FROM Room r WHERE r.roomID = :roomID"),
     @NamedQuery(name = "Room.findByName", query = "SELECT r FROM Room r WHERE r.name = :name"),
     @NamedQuery(name = "Room.findByDescription", query = "SELECT r FROM Room r WHERE r.description = :description"),
-    @NamedQuery(name = "Room.findByPrice", query = "SELECT r FROM Room r WHERE r.price = :price")})
+    @NamedQuery(name = "Room.findByPrice", query = "SELECT r FROM Room r WHERE r.price = :price"),
+    @NamedQuery(name = "Room.findByApproved", query = "SELECT r FROM Room r WHERE r.approved = :approved")})
 public class Room implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
+    @NotNull
     @Column(name = "RoomID")
     private Integer roomID;
     @Basic(optional = false)
@@ -53,6 +52,10 @@ public class Room implements Serializable {
     @NotNull
     @Column(name = "Price")
     private float price;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "Approved")
+    private boolean approved;
     @JoinColumn(name = "HostelID", referencedColumnName = "HostelID")
     @ManyToOne(optional = false)
     private Hostel hostelID;
@@ -64,10 +67,11 @@ public class Room implements Serializable {
         this.roomID = roomID;
     }
 
-    public Room(Integer roomID, String name, float price) {
+    public Room(Integer roomID, String name, float price, boolean approved) {
         this.roomID = roomID;
         this.name = name;
         this.price = price;
+        this.approved = approved;
     }
 
     public Integer getRoomID() {
@@ -100,6 +104,14 @@ public class Room implements Serializable {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public boolean getApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 
     public Hostel getHostelID() {

@@ -8,10 +8,11 @@ import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.12.v20230209-rNA", date="2023-08-27T17:23:13")
+@Generated(value="EclipseLink-2.7.12.v20230209-rNA", date="2023-08-28T03:08:27")
 @StaticMetamodel(Hostel.class)
 public class Hostel_ { 
 
+    public static volatile SingularAttribute<Hostel, Boolean> approved;
     public static volatile SingularAttribute<Hostel, String> address;
     public static volatile SingularAttribute<Hostel, String> phone;
     public static volatile SingularAttribute<Hostel, Integer> hostelID;

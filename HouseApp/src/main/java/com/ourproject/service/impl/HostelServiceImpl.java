@@ -16,13 +16,23 @@ import org.springframework.stereotype.Service;
  * @author ahjhj
  */
 @Service
-public class HostelServiceImpl implements HostelService{
+public class HostelServiceImpl implements HostelService {
+
     @Autowired
     private HostelRepository hostelRepository;
-     
-    
+
     @Override
-    public List<Hostel> getHostel(){
+    public List<Hostel> getHostel() {
         return this.hostelRepository.getHostel();
+    }
+
+    @Override
+    public List<Hostel> getUnapprovedHostels() {
+        return hostelRepository.getUnapprovedHostels();
+    }
+
+    @Override
+    public void approveHostel(int id) {
+        hostelRepository.approveHostel(id);
     }
 }

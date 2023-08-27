@@ -4,6 +4,7 @@
  */
 package com.ourproject.service;
 
+import com.ourproject.pojo.Hostel;
 import com.ourproject.pojo.Room;
 import java.util.List;
 
@@ -13,4 +14,8 @@ import java.util.List;
  */
 public interface RoomService {
     List<Room> getRooms();
+    
+    public List<Room> getUnapprovedRooms();
+
+    void approveRoom(int id);
 }

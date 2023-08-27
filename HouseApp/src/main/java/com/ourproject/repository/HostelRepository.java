@@ -15,4 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HostelRepository {
     List<Hostel> getHostel();
+    
+    List<Hostel> getUnapprovedHostels();
+    void approveHostel(int id);
 }

@@ -4,33 +4,37 @@
  */
 package com.ourproject.controllers;
 
-import com.ourproject.pojo.TemporaryPost;
-import javax.servlet.http.HttpSession;
+
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
  * @author ahjhj
  */
 @Controller
-@EnableWebMvc
-@RequestMapping("/post")
 public class PostController {
-    @GetMapping
-    public String showPostPage(){
+    
+    @GetMapping("/post")
+    public String showPostForm(){
         return "post";
     }
     
-    @PostMapping("/save")
-    public String saveTemporaryPost(TemporaryPost temporaryPost, HttpSession session){
-        //Lưu thông tin vào session
-        session.setAttribute("temporaryPost", temporaryPost);
-        return "redirect:/post/success";
+    @PostMapping("/submit")
+    public String submitPost(HttpServletRequest request, MultipartFile roomImage){
+        String hostelName = request.getParameter("hostelName");
+        String hostelAddress = request.getParameter("hostelAddress");
+        String hostelPhone = request.getParameter("hostelPhone");
+        String roomName = request.getParameter("roomName");
+        String roomDescription = request.getParameter("roomDescription");
+        String roomPrice = request.getParameter("roomPrice");
+
+        return  "redirect:/post";
     }
+    
     
     @GetMapping("/success")
     public  String showPostSuccess(){

@@ -10,8 +10,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -36,13 +34,14 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Hostel.findByHostelID", query = "SELECT h FROM Hostel h WHERE h.hostelID = :hostelID"),
     @NamedQuery(name = "Hostel.findByName", query = "SELECT h FROM Hostel h WHERE h.name = :name"),
     @NamedQuery(name = "Hostel.findByAddress", query = "SELECT h FROM Hostel h WHERE h.address = :address"),
-    @NamedQuery(name = "Hostel.findByPhone", query = "SELECT h FROM Hostel h WHERE h.phone = :phone")})
+    @NamedQuery(name = "Hostel.findByPhone", query = "SELECT h FROM Hostel h WHERE h.phone = :phone"),
+    @NamedQuery(name = "Hostel.findByApproved", query = "SELECT h FROM Hostel h WHERE h.approved = :approved")})
 public class Hostel implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
+    @NotNull
     @Column(name = "HostelID")
     private Integer hostelID;
     @Basic(optional = false)
@@ -61,6 +60,10 @@ public class Hostel implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "Phone")
     private String phone;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "Approved")
+    private boolean approved;
     @JoinColumn(name = "UserID", referencedColumnName = "UserID")
     @ManyToOne(optional = false)
     private User userID;
@@ -76,11 +79,12 @@ public class Hostel implements Serializable {
         this.hostelID = hostelID;
     }
 
-    public Hostel(Integer hostelID, String name, String address, String phone) {
+    public Hostel(Integer hostelID, String name, String address, String phone, boolean approved) {
         this.hostelID = hostelID;
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.approved = approved;
     }
 
     public Integer getHostelID() {
@@ -113,6 +117,14 @@ public class Hostel implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public boolean getApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 
     public User getUserID() {

@@ -14,4 +14,7 @@ import java.util.List;
  */
 public interface HostelService {
     public List<Hostel> getHostel();
+    
+    public List<Hostel> getUnapprovedHostels();
+    void approveHostel(int id);
 }
