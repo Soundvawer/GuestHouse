@@ -10,5 +10,6 @@
 </beans>
 
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    <property name="maxUploadSize" value="5242880"/> <!-- Kích thước tối đa cho tệp tin (5MB) -->
+    <property name="maxUploadSize" value="10000000"/> <!-- Kích thước tối đa cho việc tải lên -->
 </bean>
+

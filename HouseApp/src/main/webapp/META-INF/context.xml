@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/HouseApp"/>
+<Context path="/HouseApp">
+    <multipart-config>
+        <location>/some/directory/to/store/uploaded/files</location>
+        <max-file-size>20848820</max-file-size>
+        <max-request-size>418018841</max-request-size>
+        <file-size-threshold>1048576</file-size-threshold>
+    </multipart-config>
+
+</Context>
+
+

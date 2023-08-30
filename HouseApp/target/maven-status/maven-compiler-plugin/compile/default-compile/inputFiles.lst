@@ -4,6 +4,7 @@ D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Follow.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\impl\HostelServiceImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Role.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Hostel.java
+D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\PostForm.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\configs\DispatcherServletInit.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\controllers\IndexController.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\impl\RoomServiceImpl.java
@@ -26,7 +27,6 @@ D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Rating.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\StatsRepositoryImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\HostelRepository.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Comment.java
-D:\GuestHouse\HouseApp\src\main\java\com\ourproject\controllers\RegisterController.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\impl\ImageServiceImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Room.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\StatsRepository.java

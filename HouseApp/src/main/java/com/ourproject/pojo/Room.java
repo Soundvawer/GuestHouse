@@ -5,7 +5,9 @@
 package com.ourproject.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -33,7 +36,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Room.findByPrice", query = "SELECT r FROM Room r WHERE r.price = :price"),
     @NamedQuery(name = "Room.findByApproved", query = "SELECT r FROM Room r WHERE r.approved = :approved")})
 public class Room implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -59,7 +62,7 @@ public class Room implements Serializable {
     @JoinColumn(name = "HostelID", referencedColumnName = "HostelID")
     @ManyToOne(optional = false)
     private Hostel hostelID;
-
+    
     public Room() {
     }
 
@@ -120,7 +123,8 @@ public class Room implements Serializable {
 
     public void setHostelID(Hostel hostelID) {
         this.hostelID = hostelID;
-    }
+    }   
+    
 
     @Override
     public int hashCode() {
