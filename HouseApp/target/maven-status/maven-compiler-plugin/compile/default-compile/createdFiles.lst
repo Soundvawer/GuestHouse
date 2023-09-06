@@ -19,6 +19,7 @@ com\ourproject\repository\impl\RoomRepositoryImpl.class
 com\ourproject\repository\RoomRepository.class
 com\ourproject\repository\HostelRepository.class
 com\ourproject\pojo\Comment_.class
+com\ourproject\pojo\PostForm_.class
 com\ourproject\pojo\Image.class
 com\ourproject\pojo\Rating.class
 com\ourproject\pojo\Room_.class

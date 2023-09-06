@@ -9,13 +9,10 @@ D:\GuestHouse\HouseApp\src\main\java\com\ourproject\configs\DispatcherServletIni
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\controllers\IndexController.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\impl\RoomServiceImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Posting.java
-D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\ImageService.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\UserRepositoryImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\UserRepository.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\RoomService.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\HostelRepositoryImpl.java
-D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\ImageRepositoryImpl.java
-D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\ImageRepository.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\HostelService.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\configs\HibernateConfig.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\controllers\AdminController.java
@@ -27,7 +24,6 @@ D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Rating.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\StatsRepositoryImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\HostelRepository.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Comment.java
-D:\GuestHouse\HouseApp\src\main\java\com\ourproject\service\impl\ImageServiceImpl.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\pojo\Room.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\StatsRepository.java
 D:\GuestHouse\HouseApp\src\main\java\com\ourproject\repository\impl\RoomRepositoryImpl.java

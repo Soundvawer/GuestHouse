@@ -18,6 +18,9 @@
     <class>com.ourproject.pojo.Image</class>
     <class>com.ourproject.pojo.Room</class>
     <class>com.ourproject.pojo.Comment</class>
+    <class>com.ourproject.pojo.House</class>
+    <class>com.ourproject.pojo.Roomdto</class>
+    <class>com.ourproject.pojo.Housedto</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/saledb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
